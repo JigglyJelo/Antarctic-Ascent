@@ -144,8 +144,8 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 func collision_checks(node: Node) -> void:
 	if node.is_in_group("death") and global_position.y > Game.camera.global_position.y - 210:
 		if node is Icicle:
-			const icicle_offset: int = 35
-			if global_position.y > node.global_position.y - icicle_offset:
+			const ICICLE_OFFSET: int = 35
+			if global_position.y > node.global_position.y - ICICLE_OFFSET:
 				die()
 		else:
 			die()
