@@ -4,12 +4,10 @@ static var snowball_scene: PackedScene
 var throw_timer = 0
 static var throw_interval = 1
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if snowball_scene == null:
 		snowball_scene = load("res://Scenes/Snowball.tscn")
 	sprite = $AnimatedSprite2D
-
 
 func _physics_process(delta: float) -> void:
 	if global_position.y > Game.camera.global_position.y + 300:
@@ -31,10 +29,9 @@ func throw_snowball() -> void:
 	if Game.player == null:
 		return
 	var snowball: RigidBody2D = snowball_scene.instantiate()
-	
-	#add_collision_exception_with(snowball)
+	#Get angle to throw snow ball which will be angle between snowman and slightly above player to account for gravity
 	var angle: float = atan2(((Game.player.global_position.y-15)-global_position.y),(Game.player.global_position.x-global_position.x))
-	snowball.apply_force(Vector2(cos(angle),sin(angle))*2000)
+	snowball.apply_force(Vector2.from_angle(angle)*2000)
 	add_child(snowball)
 
 func _on_animated_sprite_2d_frame_changed() -> void:

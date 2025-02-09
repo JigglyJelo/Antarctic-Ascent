@@ -152,37 +152,29 @@ static func set_height(new_height: float) -> void:
 		height = new_height
 		#update_scores()
 		camera.height_label.text = "Height: " + str(int(height/15)) + "M"
-		if height > highscore: #(height/15)+snow_flake_bonus > highscore/15
+		if height > highscore:
 			@warning_ignore("narrowing_conversion")
-			highscore = height #+ (snow_flake_bonus*15)
+			highscore = height
 			save_highscore()
 			@warning_ignore("integer_division")
 			camera.highscore_label.text = "Hiscore: " + str(int(highscore/15)) + "M"
-			
-#static func update_scores() -> void:
-#	camera.height_label.text = "Height: " + str(int(height/15)) + "M"
-#	if snow_flake_bonus > 0:
-#		camera.height_label.text += "+" + str(snow_flake_bonus)
-#	if (height/15)+snow_flake_bonus > highscore/15:
-#		highscore = height + (snow_flake_bonus*15)
-#		camera.highscore_label.text = "Hiscore: " + str(int(highscore/15)) + "M"
 
 func spawn_icicle() -> void:
 	if player != null:
 		var icicle: Icicle = icicle_scene.instantiate()
 		icicle.global_position = Vector2(player.global_position.x,camera.global_position.y-285)
 		add_child(icicle)
-		
+
 func spawn_snowflake() -> void:
 	var snowflake: Area2D = snowflake_scene.instantiate()
 	snowflake.global_position = Vector2(randi_range(-158,158),camera.global_position.y-212)
 	add_child(snowflake)
-	
+
 func spawn_cloud() -> void:
 	var cloud: Sprite2D = cloud_scene.instantiate()
 	cloud.global_position = Vector2(randi_range(-116,116),camera.global_position.y-212)
 	add_child(cloud)
-	
+
 func spawn_snowman() -> void:
 	var snowman: StaticBody2D = snowman_scene.instantiate()
 	snowman.global_position = Vector2(randi_range(-148,148),camera.global_position.y-212)
@@ -192,6 +184,7 @@ func spawn_storm() -> void:
 	var storm: Sprite2D = storm_cloud_scene.instantiate()
 	storm.global_position = Vector2(randi_range(-116,116),camera.global_position.y-212)
 	add_child(storm)
+
 func spawn_star():
 	var star: Sprite2D = star_scene.instantiate()
 	star.global_position = Vector2(randi_range(-148,148),camera.global_position.y-212)
@@ -222,7 +215,7 @@ func spawn_pattern() -> void:
 			var y_pos: int = camera.global_position.y-212-y_length
 			var tiled_position: Vector2i = build_tiles.ground_layer.local_to_map(build_tiles.ground_layer.to_local(Vector2(x_pos,y_pos)))
 			build_tiles.ground_layer.set_pattern(tiled_position,pattern)
-	
+
 static func difficulty_increases(distance: float) -> void:
 	#Height in tiles times their size (15)
 	match difficulty:
@@ -412,18 +405,21 @@ static func difficulty_increases(distance: float) -> void:
 				star_next_spawn = randf_range(star_spawn_interval*0.8,star_spawn_interval*1.2)
 				snowflake_spawn_interval *= 1-(0.01-camera.raise_speed)
 				difficulty = 20
-				
+
 func restart_game() -> void:
 	get_tree().change_scene_to_file("res://Game Scene.tscn")
+
 func return_to_menu() -> void:
 	Engine.time_scale = 1
 	if music.stream.get_length() < 107:
 		(get_parent() as SceneManager).switch_to_menu()
 	else:
 		get_tree().change_scene_to_file("res://Scene Manager.tscn")
+
 static func save_highscore() -> void:
 	var file: FileAccess = FileAccess.open(SAVE_PATH,FileAccess.WRITE)
 	file.store_var(highscore)
+
 static func load_highscore() -> void:
 	if FileAccess.file_exists(SAVE_PATH):
 		var file: FileAccess = FileAccess.open(SAVE_PATH,FileAccess.READ)
@@ -431,10 +427,12 @@ static func load_highscore() -> void:
 	else:
 		highscore = 50*15
 		save_highscore()
+
 static func save_volume() -> void:
 	var file: FileAccess = FileAccess.open(SETTINGS_PATH,FileAccess.WRITE)
 	file.store_var(music_volume)
 	file.store_var(sfx_volume)
+
 static func load_volume() -> void:
 	if FileAccess.file_exists(SETTINGS_PATH):
 		var file: FileAccess = FileAccess.open(SETTINGS_PATH,FileAccess.READ)

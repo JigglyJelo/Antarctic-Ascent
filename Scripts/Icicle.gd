@@ -33,7 +33,3 @@ func destroy_ground_tile(global_point: Vector2) -> void:
 			if Game.build_tiles.ground_layer.get_cell_tile_data(surrounding_tile) != null:
 				Game.build_tiles.ground_layer.erase_cell(surrounding_tile)
 				Game.build_tiles.ground_layer.set_cells_terrain_connect([surrounding_tile],0,0,false)
-
-#func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
-#	for i: int in range(state.get_contact_count()):
-#		Game.build_tiles.destroy_tile(state.get_contact_local_position(i),false) #LIAR FUNCTION IT ACTUALLY GIVES GLOBAL POSITION

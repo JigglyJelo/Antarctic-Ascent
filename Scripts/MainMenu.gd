@@ -24,19 +24,24 @@ func _process(_delta: float) -> void:
 
 func start_game() -> void:
 	get_tree().change_scene_to_file("res://Game Scene.tscn")
+
 func start_tutorial() -> void:
 	(get_parent() as SceneManager).switch_to_tutorial()
+
 func set_music_volume(volume: float) -> void:
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), linear_to_db(volume/100))
 	Game.music_volume = volume
 	Game.save_volume()
+
 func set_sfx_volume(volume: float) -> void:
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), linear_to_db(volume/100))
 	Game.sfx_volume = volume
 	Game.save_volume()
+
 func show_credits() -> void:
 	credits_screen.global_position.x = 0
 	menu_nodes.global_position.x = 720
+
 func show_menu() -> void:
 	credits_screen.global_position.x = 720
 	menu_nodes.global_position.x = 0

@@ -11,7 +11,6 @@ var break_sfx: AudioStreamPlayer2D
 var rock_sfx: AudioStreamPlayer2D
 var ground_layer: TileMapLayer
 
-
 func _ready() -> void:
 	var parent: Node = get_parent()
 	snow_label = parent.get_node("Camera2D/SnowText")
@@ -39,7 +38,7 @@ func _process(_delta: float) -> void:
 		
 	else:
 		delete_timer += 1
-		
+
 func tile_controls() -> void:
 	#Draw Tiles
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
@@ -65,7 +64,7 @@ static func set_snow(new_snow: float) -> void:
 		BuildingTiles.snow = new_snow
 		snow_label.self_modulate = Color(1,1,1)
 	snow_label.text = "Snow: " + str(BuildingTiles.snow)
-	
+
 func destroy_tile(global_point: Vector2, snow_regain: bool) -> void:
 	var cell: Vector2i = local_to_map(to_local(global_point))
 	if get_cell_tile_data(cell) != null:
@@ -84,10 +83,7 @@ func destroy_tile(global_point: Vector2, snow_regain: bool) -> void:
 			if get_cell_tile_data(surrounding_tile) != null:
 				erase_cell(surrounding_tile)
 				set_cells_terrain_connect([surrounding_tile],0,0,false)
-enum Pattern{
-	PILLAR,PLUS,UP_LEFT_CORNER,LINE,DIAGANOL,RIGHT_ISLAND,ISLAND,LEFT_ISLAND,
-	LEFT_LOOP,RIGHT_LOOP,FOUR_ISLAND,THREE_ISLAND,TWO_ISLAND,TPIECE,TRIPLE,ARCH,WALLS,BUCKET
-}
+
 func start_game(body: Node2D) -> void:
 	if body is Player:
 		Game.started = true
@@ -98,3 +94,8 @@ func start_game(body: Node2D) -> void:
 		Game.icicle_next_spawn = Game.icicle_spawn_interval
 		get_parent().get_node("MusicPlayer").play()
 		$StartArea.queue_free()
+
+enum Pattern{
+	PILLAR,PLUS,UP_LEFT_CORNER,LINE,DIAGANOL,RIGHT_ISLAND,ISLAND,LEFT_ISLAND,
+	LEFT_LOOP,RIGHT_LOOP,FOUR_ISLAND,THREE_ISLAND,TWO_ISLAND,TPIECE,TRIPLE,ARCH,WALLS,BUCKET
+}
