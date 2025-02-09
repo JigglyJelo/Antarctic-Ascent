@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmei7hmstb7o8"]
+
+[ext_resource type="Script" path="res://Scripts/Snowball.gd" id="1_30fwd"]
+[ext_resource type="Texture2D" uid="uid://bs580u108d0ny" path="res://Sprites/Snowman/snowball.png" id="1_jlw0e"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_anvj3"]
+radius = 2.0
+
+[node name="Snowball" type="RigidBody2D"]
+mass = 0.1
+gravity_scale = 0.25
+lock_rotation = true
+contact_monitor = true
+max_contacts_reported = 3
+script = ExtResource("1_30fwd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_jlw0e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_anvj3")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

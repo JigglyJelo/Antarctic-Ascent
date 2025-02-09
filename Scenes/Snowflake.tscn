@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cyoy2rxdd5umt"]
+
+[ext_resource type="Script" path="res://Scripts/Snowflake.gd" id="1_63dns"]
+[ext_resource type="Texture2D" uid="uid://nvnixstx2vy3" path="res://Sprites/Snowflake.png" id="2_cobtq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cjt6b"]
+radius = 16.0
+
+[node name="Snowflake" type="Area2D"]
+texture_filter = 1
+script = ExtResource("1_63dns")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_cjt6b")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_cobtq")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
