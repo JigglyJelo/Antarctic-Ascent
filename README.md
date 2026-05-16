@@ -23,6 +23,7 @@ Collect snowflakes to place blocks and erase them to regain some snow.
 * **Engine:** [Godot 4.3](https://godotengine.org/license/)
 * **Language:** GDScript
 
+## Licenses
 * **Source/ Folder (Game Logic & Structure):** Licensed under the [GNU General Public License v3.0 or later](LICENSE).
 * **Assets/ Folder (Creative Media):**
   * **Sprites and Images:** Licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
