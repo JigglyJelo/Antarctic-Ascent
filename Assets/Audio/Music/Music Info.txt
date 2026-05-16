@@ -1,0 +1,6 @@
+The original release for the GMTK game jam and the post-jam 1.1 update used the songs:
+
+We Wish You A Merry Christmas - DJ Williams
+Deck the Halls - DJ Williams
+
+These songs are from the YouTube Audio Library under the YouTube Audio Library License, which does not permit standalone distribution. Because of this, they have not been included in this repository. Future updates will replace the songs with distributable ones, but for now, or if you want the originally used songs in the future, you can obtain them from the YouTube Studio's Audio Library.
