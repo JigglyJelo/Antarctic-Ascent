@@ -24,8 +24,8 @@ Collect snowflakes to place blocks and erase them to regain some snow.
 * **Language:** GDScript
 
 ## Licenses
-* **Source/ Folder (Game Logic & Structure):** Licensed under the [GNU General Public License v3.0 or later](LICENSE).
-* **Assets/ Folder (Creative Media):**
+* **Source/ (Game Logic & Structure):** Licensed under the [GNU General Public License v3.0 or later](LICENSE).
+* **Assets/ (Creative Media):**
   * **Sprites and Images:** Licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
   * **Font:** The *Press Start 2P* font is licensed under the [SIL Open Font License 1.1 (OFL)](https://fonts.google.com/specimen/Press+Start+2P/license).
-  * **Audio:** All sound effects and music are third-party assets (Public Domain/Creative Commons). See the appropriate credits files for full details, specific licenses, and original sources.
+  * **Audio:** All sound effects and music are third-party assets (Public Domain/CC0). See the appropriate credits files for full details, specific licenses, and original sources.

@@ -14,7 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://by0crp7rs8q5p" path="res://Assets/Audio/SFX/ice_break.ogg" id="8_pog70"]
 [ext_resource type="AudioStream" uid="uid://bx0sx4qyio17g" path="res://Assets/Audio/SFX/squeak3death.ogg" id="10_rqifm"]
 [ext_resource type="AudioStream" uid="uid://djyavmomc5hk4" path="res://Assets/Audio/SFX/wind2.ogg" id="14_e0u53"]
-[ext_resource type="AudioStream" uid="uid://ddp0ovm3tcsxg" path="res://Assets/Audio/Music/Deck The Halls - DJ Williams.ogg" id="14_xa786"]
+[ext_resource type="AudioStream" uid="uid://dwmrdqcjtxvfp" path="res://Assets/Audio/Music/every_xmas_merry_xmas.ogg" id="15_anqnx"]
 [ext_resource type="Texture2D" uid="uid://cgbe88wcsbwlw" path="res://Assets/Sprites/Cursor.png" id="15_oi7mj"]
 [ext_resource type="Script" path="res://Source/Scripts/Cursor.gd" id="16_2p54w"]
 [ext_resource type="AudioStream" uid="uid://b78hs5erw1rkt" path="res://Assets/Audio/SFX/collect.ogg" id="17_blpp6"]
@@ -1198,8 +1198,7 @@ position = Vector2(-127, 156)
 position = Vector2(0, -62)
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("14_xa786")
-autoplay = true
+stream = ExtResource("15_anqnx")
 bus = &"Music"
 
 [node name="DeathSound" type="AudioStreamPlayer" parent="."]

@@ -47,6 +47,7 @@ static var music_volume: float
 static var sfx_volume: float
 const SAVE_PATH: String = "user://Ascent.save"
 const SETTINGS_PATH: String = "user://Settings.save"
+const MENU_MUSIC_SECONDS: float = 140.909210205078
 
 func _ready() -> void:
 	started = false
@@ -95,7 +96,7 @@ func _ready() -> void:
 	pattern_next_spawn = pattern_spawn_interval
 	possible_patterns = [BuildingTiles.Pattern.FOUR_ISLAND,BuildingTiles.Pattern.THREE_ISLAND,BuildingTiles.Pattern.TWO_ISLAND]
 	spawn_pattern()
-	if music.stream.get_length() < 107:
+	if is_equal_approx(music.stream.get_length(),MENU_MUSIC_SECONDS):
 		pass
 	else:
 		music.stop()
@@ -411,7 +412,7 @@ func restart_game() -> void:
 
 func return_to_menu() -> void:
 	Engine.time_scale = 1
-	if music.stream.get_length() < 107:
+	if is_equal_approx(music.stream.get_length(),MENU_MUSIC_SECONDS):
 		(get_parent() as SceneManager).switch_to_menu()
 	else:
 		get_tree().change_scene_to_file("res://Source/Scenes/Main Scenes/Scene Manager.tscn")

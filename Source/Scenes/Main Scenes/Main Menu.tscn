@@ -691,20 +691,24 @@ horizontal_alignment = 1
 
 [node name="MusicText" type="Label" parent="CreditsScreen"]
 texture_filter = 1
-offset_top = 121.0
+offset_top = 114.0
 offset_right = 368.0
-offset_bottom = 144.0
-text = "Music by DJ Williams 
-via the YouTube Audio Library
-"
+offset_bottom = 186.0
+text = "Available under the following licenses:
+Code: GPL 3.0 or later
+Sprites/Images: CC BY-SA 4.0
+The Press Start 2P Font:  OFL
+Music:
+Merry Early Christmas by Alex McCulloch: CC0
+Every Xmas Merry Xmas by congusbongus: CC0"
 label_settings = SubResource("LabelSettings_gd5tv")
 horizontal_alignment = 1
 
 [node name="AudioText" type="Label" parent="CreditsScreen"]
 texture_filter = 1
-offset_top = 171.0
+offset_top = 196.0
 offset_right = 360.0
-offset_bottom = 322.0
+offset_bottom = 309.0
 text = "Public Domain SFX Used:
 freesound.org/people/Nox_Sound/sounds/490951
 freesound.org/people/propthis/sounds/24731
@@ -721,10 +725,12 @@ horizontal_alignment = 1
 
 [node name="GodotText" type="Label" parent="CreditsScreen"]
 texture_filter = 1
-offset_top = 299.0
+offset_top = 319.0
 offset_right = 368.0
-offset_bottom = 322.0
-text = "Made in Godot"
+offset_bottom = 349.0
+text = "Made in Godot 4.3
+https://github.com/JigglyJelo/Antarctic-Ascent
+For More Info"
 label_settings = SubResource("LabelSettings_gd5tv")
 horizontal_alignment = 1
 

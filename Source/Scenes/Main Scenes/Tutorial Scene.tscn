@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://cyoy2rxdd5umt" path="res://Source/Scenes/Object Scenes/Snowflake.tscn" id="11_nil2f"]
 [ext_resource type="AudioStream" uid="uid://bx0sx4qyio17g" path="res://Assets/Audio/SFX/squeak3death.ogg" id="13_2aop3"]
 [ext_resource type="AudioStream" uid="uid://djyavmomc5hk4" path="res://Assets/Audio/SFX/wind2.ogg" id="14_a0tui"]
-[ext_resource type="AudioStream" uid="uid://87vgkf7fgers" path="res://Assets/Audio/Music/We Wish You A Merry Christmas - DJ Williams.ogg" id="14_vhaog"]
+[ext_resource type="AudioStream" uid="uid://ceq5gmlm252j1" path="res://Assets/Audio/Music/merry_early_christmas.ogg" id="14_shnco"]
 [ext_resource type="Texture2D" uid="uid://cgbe88wcsbwlw" path="res://Assets/Sprites/Cursor.png" id="15_whs34"]
 [ext_resource type="Script" path="res://Source/Scripts/Cursor.gd" id="16_6pcbb"]
 [ext_resource type="AudioStream" uid="uid://b78hs5erw1rkt" path="res://Assets/Audio/SFX/collect.ogg" id="19_7yaoa"]
@@ -1159,7 +1159,7 @@ position = Vector2(126, 0)
 position = Vector2(-120, -93)
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("14_vhaog")
+stream = ExtResource("14_shnco")
 volume_db = -80.0
 autoplay = true
 bus = &"Music"
