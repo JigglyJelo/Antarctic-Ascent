@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://urp6n0emcbxt"]
+
+[ext_resource type="Texture2D" uid="uid://bd4qbip21shyr" path="res://Assets/Sprites/CloudSmall.png" id="1_18dl3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vqel5"]
+size = Vector2(21, 12)
+
+[node name="Cloud" type="Sprite2D" groups=["bouncy"]]
+texture_filter = 1
+texture = ExtResource("1_18dl3")
+
+[node name="Area2D" type="Area2D" parent="." groups=["bouncy"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_vqel5")

@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=3 uid="uid://tq2wx1yuis34"]
+
+[ext_resource type="Texture2D" uid="uid://c8le7yabl2bie" path="res://Assets/Sprites/Snowman/snowman1.png" id="1_3h5t3"]
+[ext_resource type="Script" path="res://Source/Scripts/Snowman.gd" id="1_l14gw"]
+[ext_resource type="Texture2D" uid="uid://wxt73gow2cld" path="res://Assets/Sprites/Snowman/snowman2.png" id="2_5x22y"]
+[ext_resource type="Texture2D" uid="uid://dordyvh0if8h1" path="res://Assets/Sprites/Snowman/snowman3.png" id="3_b3xga"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gfovd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_3h5t3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_5x22y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_b3xga")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_b3xga")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_5x22y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_3h5t3")
+}],
+"loop": false,
+"name": &"throw",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ja4e"]
+size = Vector2(22, 4)
+
+[node name="Snowman" type="StaticBody2D"]
+script = ExtResource("1_l14gw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_gfovd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 13)
+shape = SubResource("RectangleShape2D_8ja4e")
+one_way_collision = true
+
+[connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]
