@@ -1,6 +1,6 @@
 extends Area2D
 @onready var sprite: Sprite2D = $Sprite2D
-const SNOWFLAKE_SNOW: float = 10
+const SNOWFLAKE_SNOW: float = 20
 
 func _process(delta: float) -> void:
 	global_position.y += (delta / Game.camera.raise_speed) * 3

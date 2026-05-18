@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=4 uid="uid://blbo2k1x48ylm"]
+[gd_scene load_steps=51 format=4 uid="uid://blbo2k1x48ylm"]
 
 [ext_resource type="Script" path="res://Source/Scripts/Camera.gd" id="1_ckjtm"]
 [ext_resource type="Script" path="res://Source/Scripts/Game.gd" id="1_ncqeb"]
@@ -7,7 +7,6 @@
 [ext_resource type="FontFile" uid="uid://cmfeqjjrfcrpw" path="res://Assets/PressStart2P-vaV7.ttf" id="2_mj6pa"]
 [ext_resource type="Texture2D" uid="uid://cisorq3x0bjlk" path="res://Assets/Sprites/MountainTiles.png" id="4_e77lo"]
 [ext_resource type="PackedScene" uid="uid://dc37wsnnlbsmp" path="res://Source/Scenes/Object Scenes/Player.tscn" id="4_n5yd4"]
-[ext_resource type="Script" path="res://Source/Scripts/DynamicBackground.gd" id="4_pg01c"]
 [ext_resource type="AudioStream" uid="uid://cfso7xxo546yb" path="res://Assets/Audio/SFX/snow_place.ogg" id="4_wrigx"]
 [ext_resource type="AudioStream" uid="uid://btw2awp4ks0oy" path="res://Assets/Audio/SFX/rock.ogg" id="6_eulli"]
 [ext_resource type="PackedScene" uid="uid://cyoy2rxdd5umt" path="res://Source/Scenes/Object Scenes/Snowflake.tscn" id="7_spp1k"]
@@ -1126,7 +1125,6 @@ offset_top = -3420.0
 offset_right = 180.0
 offset_bottom = 180.0
 texture = SubResource("GradientTexture2D_su6pf")
-script = ExtResource("4_pg01c")
 
 [node name="UICanvasLayer" type="CanvasLayer" parent="."]
 layer = 0
