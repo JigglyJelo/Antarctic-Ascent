@@ -13,7 +13,7 @@ var ground_layer: TileMapLayer
 
 func _ready() -> void:
 	var parent: Node = get_parent()
-	snow_label = parent.get_node("Camera2D/SnowText")
+	snow_label = parent.get_node("UICanvasLayer/SnowText")
 	place_sfx = $PlaceSound
 	erase_sfx = $EraseSound
 	break_sfx = $BreakSound

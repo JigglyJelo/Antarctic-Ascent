@@ -127,12 +127,12 @@ func die() -> void:
 	parent.get_node("MusicPlayer").stop()
 	parent.get_node("Cursor").queue_free()
 	if Game.snow_flake_bonus > 0:
-		var bonus_text: Label = Game.camera.get_node("BonusText")
+		var bonus_text: Label = Game.UICanvasLayer.get_node("BonusText")
 		bonus_text.text += str(Game.snow_flake_bonus)
 		bonus_text.visible = true
 	Game.death_sfx.play()
 	dead = true
-	Game.camera.get_node("Deathscreen").position.x = 0
+	Game.UICanvasLayer.get_node("Deathscreen").position.x = 0
 	queue_free()
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
@@ -162,7 +162,7 @@ func collision_checks(node: Node) -> void:
 func pause() -> void:
 	if Engine.time_scale < 1.01 and Engine.time_scale > 0.99:
 		Engine.time_scale = 0
-		Game.camera.get_node("Pausescreen").position.x = 0
+		Game.UICanvasLayer.get_node("Pausescreen").position.x = 0
 	else:
 		Engine.time_scale = 1
-		Game.camera.get_node("Pausescreen").position.x = 720
+		Game.UICanvasLayer.get_node("Pausescreen").position.x = 720

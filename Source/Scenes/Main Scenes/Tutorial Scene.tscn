@@ -20,30 +20,6 @@
 [ext_resource type="Script" path="res://Source/Scripts/Cursor.gd" id="16_6pcbb"]
 [ext_resource type="AudioStream" uid="uid://b78hs5erw1rkt" path="res://Assets/Audio/SFX/collect.ogg" id="19_7yaoa"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_ksg7p"]
-font = ExtResource("3_lmarv")
-font_size = 8
-shadow_size = 4
-shadow_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_y4xr3"]
-font = ExtResource("3_lmarv")
-font_size = 8
-outline_size = 8
-outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="Gradient" id="Gradient_bg5a1"]
-offsets = PackedFloat32Array(0, 0.05, 0.324675, 0.5, 0.9)
-colors = PackedColorArray(1, 1, 1, 1, 0.603922, 0.713726, 0.870588, 1, 0.141176, 0.376471, 0.752941, 1, 0, 0, 0.72549, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_2wqyv"]
-gradient = SubResource("Gradient_bg5a1")
-width = 1
-height = 3600
-use_hdr = true
-fill_from = Vector2(0, 1)
-fill_to = Vector2(0, 0)
-
 [sub_resource type="LabelSettings" id="LabelSettings_o1bvq"]
 font = ExtResource("3_lmarv")
 shadow_size = 4
@@ -1014,46 +990,34 @@ distance = -195.0
 normal = Vector2(-1, 0)
 distance = -195.0
 
+[sub_resource type="LabelSettings" id="LabelSettings_ksg7p"]
+font = ExtResource("3_lmarv")
+font_size = 8
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_y4xr3"]
+font = ExtResource("3_lmarv")
+font_size = 8
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Gradient" id="Gradient_ytjxg"]
+offsets = PackedFloat32Array(0, 0.5, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.603922, 0.713726, 0.870588, 1, 0.501961, 0.639216, 0.843137, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qtwi0"]
+gradient = SubResource("Gradient_ytjxg")
+width = 1
+height = 360
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
 [node name="Scene" type="Node"]
 script = ExtResource("1_8hprl")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("2_4hyum")
-
-[node name="SnowText" type="Label" parent="Camera2D"]
-z_index = 2
-texture_filter = 1
-offset_left = -178.0
-offset_top = -178.0
-offset_right = -105.0
-offset_bottom = -155.0
-text = "Snow: 0"
-label_settings = SubResource("LabelSettings_ksg7p")
-
-[node name="HeightText" type="Label" parent="Camera2D"]
-visible = false
-z_index = 2
-texture_filter = 1
-offset_left = 84.0
-offset_top = -178.0
-offset_right = 179.0
-offset_bottom = -155.0
-text = "Height: 0M"
-label_settings = SubResource("LabelSettings_y4xr3")
-horizontal_alignment = 2
-
-[node name="HighscoreText" type="Label" parent="Camera2D"]
-visible = false
-offset_right = 40.0
-offset_bottom = 23.0
-
-[node name="TextureRect" type="TextureRect" parent="Camera2D"]
-z_index = -100
-offset_left = -180.0
-offset_top = -3420.0
-offset_right = 180.0
-offset_bottom = 180.0
-texture = SubResource("GradientTexture2D_2wqyv")
 
 [node name="Controls" type="Sprite2D" parent="Camera2D"]
 texture_filter = 1
@@ -1147,7 +1111,7 @@ shape = SubResource("WorldBoundaryShape2D_gbqai")
 shape = SubResource("WorldBoundaryShape2D_r6pc1")
 
 [node name="Player" parent="." instance=ExtResource("10_uh63k")]
-position = Vector2(-134, 122)
+position = Vector2(-134, 155)
 
 [node name="Snowflake1" parent="." instance=ExtResource("11_nil2f")]
 position = Vector2(25, 101)
@@ -1187,5 +1151,49 @@ max_distance = 720.0
 attenuation = 0.01
 max_polyphony = 2
 bus = &"SFX"
+
+[node name="UICanvasLayer" type="CanvasLayer" parent="."]
+offset = Vector2(180, 180)
+transform = Transform2D(1, 0, 0, 1, 180, 180)
+
+[node name="SnowText" type="Label" parent="UICanvasLayer"]
+z_index = 2
+texture_filter = 1
+offset_left = -178.0
+offset_top = -178.0
+offset_right = -105.0
+offset_bottom = -155.0
+text = "Snow: 0"
+label_settings = SubResource("LabelSettings_ksg7p")
+
+[node name="HeightText" type="Label" parent="UICanvasLayer"]
+visible = false
+z_index = 2
+texture_filter = 1
+offset_left = 84.0
+offset_top = -178.0
+offset_right = 179.0
+offset_bottom = -155.0
+text = "Height: 0M"
+label_settings = SubResource("LabelSettings_y4xr3")
+horizontal_alignment = 2
+
+[node name="HighscoreText" type="Label" parent="UICanvasLayer"]
+visible = false
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="BGCanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+offset = Vector2(180, 180)
+transform = Transform2D(1, 0, 0, 1, 180, 180)
+
+[node name="TextureRect" type="TextureRect" parent="BGCanvasLayer"]
+z_index = -100
+offset_left = -180.0
+offset_top = -180.0
+offset_right = 180.0
+offset_bottom = 180.0
+texture = SubResource("GradientTexture2D_qtwi0")
 
 [connection signal="pressed" from="Camera2D/Button" to="." method="return_to_menu"]

@@ -519,15 +519,14 @@ pattern_14 = SubResource("TileMapPattern_qbybt")
 pattern_15 = SubResource("TileMapPattern_ynlrh")
 pattern_16 = SubResource("TileMapPattern_qarv2")
 
-[sub_resource type="Gradient" id="Gradient_l0huh"]
-offsets = PackedFloat32Array(0, 0.05, 0.324675, 0.5, 0.9)
-colors = PackedColorArray(1, 1, 1, 1, 0.603922, 0.713726, 0.870588, 1, 0.141176, 0.376471, 0.752941, 1, 0, 0, 0.72549, 1, 0, 0, 0, 1)
+[sub_resource type="Gradient" id="Gradient_yyk4l"]
+offsets = PackedFloat32Array(0, 0.5, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.603922, 0.713726, 0.870588, 1, 0.501961, 0.639216, 0.843137, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_kqdl2"]
-gradient = SubResource("Gradient_l0huh")
+gradient = SubResource("Gradient_yyk4l")
 width = 1
-height = 3600
-use_hdr = true
+height = 360
 fill_from = Vector2(0, 1)
 fill_to = Vector2(0, 0)
 
@@ -590,9 +589,8 @@ tile_set = SubResource("TileSet_ud6jw")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 z_index = -100
-offset_top = -2844.0
 offset_right = 360.0
-offset_bottom = 756.0
+offset_bottom = 360.0
 texture = SubResource("GradientTexture2D_kqdl2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -729,7 +727,7 @@ offset_top = 319.0
 offset_right = 368.0
 offset_bottom = 349.0
 text = "Made in Godot 4.3
-https://github.com/JigglyJelo/Antarctic-Ascent
+github.com/JigglyJelo/Antarctic-Ascent
 For More Info"
 label_settings = SubResource("LabelSettings_gd5tv")
 horizontal_alignment = 1

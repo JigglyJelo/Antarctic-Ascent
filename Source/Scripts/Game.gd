@@ -3,6 +3,10 @@ extends Node
 static var player: Player
 static var camera: GameCamera
 static var build_tiles: BuildingTiles
+static var BGCanvasLayer: CanvasLayer
+static var UICanvasLayer: CanvasLayer
+static var height_label: Label
+static var highscore_label: Label
 static var height: float
 static var snow_flake_bonus: float
 static var time: float
@@ -50,6 +54,12 @@ const SETTINGS_PATH: String = "user://Settings.save"
 const MENU_MUSIC_SECONDS: float = 140.909210205078
 
 func _ready() -> void:
+	BGCanvasLayer = $BGCanvasLayer
+	UICanvasLayer = $UICanvasLayer
+	height_label = UICanvasLayer.get_node("HeightText")
+	highscore_label = UICanvasLayer.get_node("HighscoreText")
+	@warning_ignore("integer_division")
+	highscore_label.text = "Highscore: " + str(int(Game.highscore/15)) + "M"
 	started = false
 	music = $MusicPlayer
 	$Snowflake.global_position.x = randf_range(-152,152)
@@ -152,13 +162,13 @@ static func set_height(new_height: float) -> void:
 	if height < new_height:
 		height = new_height
 		#update_scores()
-		camera.height_label.text = "Height: " + str(int(height/15)) + "M"
+		height_label.text = "Height: " + str(int(height/15)) + "M"
 		if height > highscore:
 			@warning_ignore("narrowing_conversion")
 			highscore = height
 			save_highscore()
 			@warning_ignore("integer_division")
-			camera.highscore_label.text = "Hiscore: " + str(int(highscore/15)) + "M"
+			highscore_label.text = "Hiscore: " + str(int(highscore/15)) + "M"
 
 func spawn_icicle() -> void:
 	if player != null:

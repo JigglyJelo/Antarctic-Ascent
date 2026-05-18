@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=4 uid="uid://blbo2k1x48ylm"]
+[gd_scene load_steps=52 format=4 uid="uid://blbo2k1x48ylm"]
 
 [ext_resource type="Script" path="res://Source/Scripts/Camera.gd" id="1_ckjtm"]
 [ext_resource type="Script" path="res://Source/Scripts/Game.gd" id="1_ncqeb"]
@@ -7,6 +7,7 @@
 [ext_resource type="FontFile" uid="uid://cmfeqjjrfcrpw" path="res://Assets/PressStart2P-vaV7.ttf" id="2_mj6pa"]
 [ext_resource type="Texture2D" uid="uid://cisorq3x0bjlk" path="res://Assets/Sprites/MountainTiles.png" id="4_e77lo"]
 [ext_resource type="PackedScene" uid="uid://dc37wsnnlbsmp" path="res://Source/Scenes/Object Scenes/Player.tscn" id="4_n5yd4"]
+[ext_resource type="Script" path="res://Source/Scripts/DynamicBackground.gd" id="4_pg01c"]
 [ext_resource type="AudioStream" uid="uid://cfso7xxo546yb" path="res://Assets/Audio/SFX/snow_place.ogg" id="4_wrigx"]
 [ext_resource type="AudioStream" uid="uid://btw2awp4ks0oy" path="res://Assets/Audio/SFX/rock.ogg" id="6_eulli"]
 [ext_resource type="PackedScene" uid="uid://cyoy2rxdd5umt" path="res://Source/Scenes/Object Scenes/Snowflake.tscn" id="7_spp1k"]
@@ -20,35 +21,6 @@
 [ext_resource type="AudioStream" uid="uid://b78hs5erw1rkt" path="res://Assets/Audio/SFX/collect.ogg" id="17_blpp6"]
 [ext_resource type="PackedScene" uid="uid://tq2wx1yuis34" path="res://Source/Scenes/Object Scenes/Snowman.tscn" id="20_rlnj7"]
 [ext_resource type="Theme" uid="uid://cqs3kfd4t6bhy" path="res://Source/Resources/ButtonTheme.tres" id="21_e5jht"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_ksg7p"]
-font = ExtResource("2_mj6pa")
-font_size = 8
-shadow_size = 4
-shadow_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_y4xr3"]
-font = ExtResource("2_mj6pa")
-font_size = 8
-outline_color = Color(0, 0, 0, 1)
-shadow_size = 4
-shadow_color = Color(0, 0, 0, 1)
-
-[sub_resource type="Gradient" id="Gradient_bg5a1"]
-offsets = PackedFloat32Array(0, 0.05, 0.324675, 0.5, 0.9)
-colors = PackedColorArray(1, 1, 1, 1, 0.603922, 0.713726, 0.870588, 1, 0.141176, 0.376471, 0.752941, 1, 0, 0, 0.72549, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_2wqyv"]
-gradient = SubResource("Gradient_bg5a1")
-width = 1
-height = 3600
-fill_from = Vector2(0, 1)
-fill_to = Vector2(0, 0)
-
-[sub_resource type="LabelSettings" id="LabelSettings_yha42"]
-font = ExtResource("2_mj6pa")
-shadow_size = 4
-shadow_color = Color(0, 0, 0, 1)
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_5p8mm"]
 tile_data = PackedInt32Array(0, 131072, 65538, 65536, 327680, 131073, 131072, 327680, 131073, 196608, 327680, 131073, 262144, 327680, 131073, 327680, 327680, 131073, 393216, 327680, 131073, 458752, 327680, 131073, 524288, 327680, 131073, 589824, 0, 1, 1, 131072, 2, 65537, 327680, 65537, 131073, 327680, 65537, 196609, 327680, 65537, 262145, 327680, 65537, 327681, 327680, 65537, 393217, 327680, 65537, 458753, 327680, 65537, 524289, 327680, 65537, 589825, 0, 65537)
@@ -1016,123 +988,41 @@ distance = -195.0
 normal = Vector2(-1, 0)
 distance = -195.0
 
+[sub_resource type="Gradient" id="Gradient_bg5a1"]
+interpolation_color_space = 2
+offsets = PackedFloat32Array(0, 0.05, 0.324675, 0.5, 0.9)
+colors = PackedColorArray(1, 1, 1, 1, 0.603922, 0.713726, 0.870588, 1, 0.141176, 0.376471, 0.752941, 1, 0, 0, 0.72549, 1, 0.0475577, 0.0475576, 0.0475576, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_su6pf"]
+gradient = SubResource("Gradient_bg5a1")
+width = 1
+height = 3600
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ksg7p"]
+font = ExtResource("2_mj6pa")
+font_size = 8
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_y4xr3"]
+font = ExtResource("2_mj6pa")
+font_size = 8
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_yha42"]
+font = ExtResource("2_mj6pa")
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 1)
+
 [node name="Scene" type="Node"]
 script = ExtResource("1_ncqeb")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("1_ckjtm")
-
-[node name="SnowText" type="Label" parent="Camera2D"]
-z_index = 2
-texture_filter = 1
-offset_left = -178.0
-offset_top = -178.0
-offset_right = -105.0
-offset_bottom = -155.0
-text = "Snow: 0"
-label_settings = SubResource("LabelSettings_ksg7p")
-
-[node name="BonusText" type="Label" parent="Camera2D"]
-visible = false
-z_index = 2
-texture_filter = 1
-offset_left = -178.0
-offset_top = 165.0
-offset_right = -82.0
-offset_bottom = 176.0
-text = "Bonus Snow: "
-label_settings = SubResource("LabelSettings_ksg7p")
-
-[node name="HeightText" type="Label" parent="Camera2D"]
-z_index = 2
-texture_filter = 1
-offset_top = -178.0
-offset_right = 179.0
-offset_bottom = -155.0
-text = "Height: 0M"
-label_settings = SubResource("LabelSettings_y4xr3")
-horizontal_alignment = 2
-
-[node name="HighscoreText" type="Label" parent="Camera2D"]
-z_index = 2
-texture_filter = 1
-offset_top = -166.0
-offset_right = 179.0
-offset_bottom = -143.0
-text = "Hiscore: 50M"
-label_settings = SubResource("LabelSettings_y4xr3")
-horizontal_alignment = 2
-
-[node name="TextureRect" type="TextureRect" parent="Camera2D"]
-z_index = -100
-offset_left = -180.0
-offset_top = -3420.0
-offset_right = 180.0
-offset_bottom = 180.0
-texture = SubResource("GradientTexture2D_2wqyv")
-
-[node name="Deathscreen" type="Node2D" parent="Camera2D"]
-z_index = 10
-position = Vector2(720, 0)
-
-[node name="RetryButton" type="Button" parent="Camera2D/Deathscreen"]
-texture_filter = 1
-offset_left = -43.0
-offset_top = -13.0
-offset_right = 43.0
-offset_bottom = 19.0
-theme = ExtResource("21_e5jht")
-text = "Retry"
-
-[node name="MenuButton" type="Button" parent="Camera2D/Deathscreen"]
-texture_filter = 1
-offset_left = -43.0
-offset_top = 38.0
-offset_right = 43.0
-offset_bottom = 70.0
-theme = ExtResource("21_e5jht")
-text = "Menu"
-
-[node name="Label" type="Label" parent="Camera2D/Deathscreen"]
-texture_filter = 1
-offset_left = -72.0
-offset_top = -70.0
-offset_right = 72.0
-offset_bottom = -47.0
-text = "Game Over"
-label_settings = SubResource("LabelSettings_yha42")
-
-[node name="Pausescreen" type="Node2D" parent="Camera2D"]
-z_index = 10
-position = Vector2(720, 0)
-
-[node name="ResumeButton" type="Button" parent="Camera2D/Pausescreen"]
-texture_filter = 1
-offset_left = -47.0
-offset_top = -13.0
-offset_right = 49.0
-offset_bottom = 19.0
-theme = ExtResource("21_e5jht")
-text = "Resume"
-
-[node name="MenuButton" type="Button" parent="Camera2D/Pausescreen"]
-texture_filter = 1
-offset_left = -43.0
-offset_top = 38.0
-offset_right = 43.0
-offset_bottom = 70.0
-theme = ExtResource("21_e5jht")
-action_mode = 0
-text = "Menu"
-
-[node name="Label" type="Label" parent="Camera2D/Pausescreen"]
-texture_filter = 1
-offset_left = -46.0
-offset_top = -81.0
-offset_right = 98.0
-offset_bottom = -58.0
-text = "Paused"
-label_settings = SubResource("LabelSettings_yha42")
 
 [node name="StartingSnowman" parent="." instance=ExtResource("20_rlnj7")]
 position = Vector2(-5, 111)
@@ -1224,8 +1114,131 @@ texture_filter = 1
 texture = ExtResource("15_oi7mj")
 script = ExtResource("16_2p54w")
 
-[connection signal="pressed" from="Camera2D/Deathscreen/RetryButton" to="." method="restart_game"]
-[connection signal="pressed" from="Camera2D/Deathscreen/MenuButton" to="." method="return_to_menu"]
-[connection signal="pressed" from="Camera2D/Pausescreen/ResumeButton" to="Player" method="pause"]
-[connection signal="pressed" from="Camera2D/Pausescreen/MenuButton" to="." method="return_to_menu"]
+[node name="BGCanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+offset = Vector2(180, 180)
+transform = Transform2D(1, 0, 0, 1, 180, 180)
+
+[node name="TextureRect" type="TextureRect" parent="BGCanvasLayer"]
+z_index = -100
+offset_left = -180.0
+offset_top = -3420.0
+offset_right = 180.0
+offset_bottom = 180.0
+texture = SubResource("GradientTexture2D_su6pf")
+script = ExtResource("4_pg01c")
+
+[node name="UICanvasLayer" type="CanvasLayer" parent="."]
+layer = 0
+offset = Vector2(180, 180)
+transform = Transform2D(1, 0, 0, 1, 180, 180)
+
+[node name="SnowText" type="Label" parent="UICanvasLayer"]
+z_index = 2
+texture_filter = 1
+offset_left = -178.0
+offset_top = -178.0
+offset_right = -105.0
+offset_bottom = -155.0
+text = "Snow: 0"
+label_settings = SubResource("LabelSettings_ksg7p")
+
+[node name="BonusText" type="Label" parent="UICanvasLayer"]
+visible = false
+z_index = 2
+texture_filter = 1
+offset_left = -178.0
+offset_top = 165.0
+offset_right = -82.0
+offset_bottom = 176.0
+text = "Bonus Snow: "
+label_settings = SubResource("LabelSettings_ksg7p")
+
+[node name="HeightText" type="Label" parent="UICanvasLayer"]
+z_index = 2
+texture_filter = 1
+offset_top = -178.0
+offset_right = 179.0
+offset_bottom = -155.0
+text = "Height: 0M"
+label_settings = SubResource("LabelSettings_y4xr3")
+horizontal_alignment = 2
+
+[node name="HighscoreText" type="Label" parent="UICanvasLayer"]
+z_index = 2
+texture_filter = 1
+offset_top = -166.0
+offset_right = 179.0
+offset_bottom = -143.0
+text = "Hiscore: 50M"
+label_settings = SubResource("LabelSettings_y4xr3")
+horizontal_alignment = 2
+
+[node name="Deathscreen" type="Node2D" parent="UICanvasLayer"]
+z_index = 10
+position = Vector2(720, 0)
+
+[node name="RetryButton" type="Button" parent="UICanvasLayer/Deathscreen"]
+texture_filter = 1
+offset_left = -43.0
+offset_top = -13.0
+offset_right = 43.0
+offset_bottom = 19.0
+theme = ExtResource("21_e5jht")
+text = "Retry"
+
+[node name="MenuButton" type="Button" parent="UICanvasLayer/Deathscreen"]
+texture_filter = 1
+offset_left = -43.0
+offset_top = 38.0
+offset_right = 43.0
+offset_bottom = 70.0
+theme = ExtResource("21_e5jht")
+text = "Menu"
+
+[node name="Label" type="Label" parent="UICanvasLayer/Deathscreen"]
+texture_filter = 1
+offset_left = -72.0
+offset_top = -70.0
+offset_right = 72.0
+offset_bottom = -47.0
+text = "Game Over"
+label_settings = SubResource("LabelSettings_yha42")
+
+[node name="Pausescreen" type="Node2D" parent="UICanvasLayer"]
+z_index = 10
+position = Vector2(720, 0)
+
+[node name="ResumeButton" type="Button" parent="UICanvasLayer/Pausescreen"]
+texture_filter = 1
+offset_left = -47.0
+offset_top = -13.0
+offset_right = 49.0
+offset_bottom = 19.0
+theme = ExtResource("21_e5jht")
+text = "Resume"
+
+[node name="MenuButton" type="Button" parent="UICanvasLayer/Pausescreen"]
+texture_filter = 1
+offset_left = -43.0
+offset_top = 38.0
+offset_right = 43.0
+offset_bottom = 70.0
+theme = ExtResource("21_e5jht")
+action_mode = 0
+text = "Menu"
+
+[node name="Label" type="Label" parent="UICanvasLayer/Pausescreen"]
+texture_filter = 1
+offset_left = -46.0
+offset_top = -81.0
+offset_right = 98.0
+offset_bottom = -58.0
+text = "Paused"
+label_settings = SubResource("LabelSettings_yha42")
+
 [connection signal="body_entered" from="TileMapLayer/StartArea" to="TileMapLayer" method="start_game"]
+[connection signal="pressed" from="UICanvasLayer/Deathscreen/RetryButton" to="." method="restart_game"]
+[connection signal="pressed" from="UICanvasLayer/Deathscreen/MenuButton" to="." method="return_to_menu"]
+[connection signal="pressed" from="UICanvasLayer/Pausescreen/ResumeButton" to="Player" method="pause"]
+[connection signal="pressed" from="UICanvasLayer/Pausescreen/MenuButton" to="." method="return_to_menu"]
