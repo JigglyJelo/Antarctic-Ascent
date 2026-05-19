@@ -97,6 +97,7 @@ func _physics_process(_delta: float) -> void:
 		elif global_position.x < -180:
 			global_position.x = 180
 			clone_sprite.position.x *= -1
+		reset_physics_interpolation()
 	elif clone_sprite.is_playing():
 		clone_sprite.stop()
 

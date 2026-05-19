@@ -15,13 +15,6 @@ func _ready() -> void:
 	$MenuNodes/MusicSlider.value = Game.music_volume
 	$MenuNodes/SFXSlider.value = Game.sfx_volume
 
-func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("fullscreen"):
-		if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_WINDOWED:
-			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
-		else:
-			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-
 func start_game() -> void:
 	get_tree().change_scene_to_file("res://Source/Scenes/Main Scenes/Game Scene.tscn")
 

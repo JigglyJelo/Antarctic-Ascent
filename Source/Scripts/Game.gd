@@ -112,6 +112,7 @@ func _ready() -> void:
 		music.stop()
 
 func _process(delta: float) -> void:
+	fullscreen_input_check()
 	if (wind > 0.01 or wind < -0.01) and not wind_sfx.playing:
 		wind_sfx.play()
 	elif wind < 0.01 and wind > -0.01 and wind_sfx.playing:
@@ -453,3 +454,10 @@ static func load_volume() -> void:
 		music_volume = 50
 		sfx_volume = 50
 		save_volume()
+
+static func fullscreen_input_check() -> void:
+	if Input.is_action_just_pressed("fullscreen"):
+		if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_WINDOWED:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
+		else:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
