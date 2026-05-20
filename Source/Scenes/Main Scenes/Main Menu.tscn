@@ -693,9 +693,10 @@ offset_top = 101.0
 offset_right = 368.0
 offset_bottom = 175.0
 text = "Available under the following licenses:
-Code: GPL 3.0 or later
+Code: GPL 3.0
 Sprites/Images: CC BY-SA 4.0
 The Press Start 2P Font:  OFL
+
 Music:
 Merry Early Christmas by Alex McCulloch: CC0
 Every Xmas Merry Xmas by congusbongus: CC0"
@@ -704,9 +705,9 @@ horizontal_alignment = 1
 
 [node name="AudioText" type="Label" parent="CreditsScreen"]
 texture_filter = 1
-offset_top = 187.0
+offset_top = 199.0
 offset_right = 360.0
-offset_bottom = 300.0
+offset_bottom = 312.0
 text = "CC0 SFX Used:
 freesound.org/people/Nox_Sound/sounds/490951
 freesound.org/people/propthis/sounds/24731
