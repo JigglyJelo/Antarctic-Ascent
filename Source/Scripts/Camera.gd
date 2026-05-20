@@ -19,7 +19,7 @@ func update_background(delta: float) -> void:
 		background.position.y += delta * 15
 
 func position_speed_multiplier() -> float:
-	const TIER_1_THRESHOLD: float = 66.67
+	const TIER_1_THRESHOLD: float = 66.667
 	const TIER_2_THRESHOLD: float = 75.0
 	const TIER_3_THRESHOLD: float = 105
 	
@@ -34,7 +34,7 @@ func position_speed_multiplier() -> float:
 	var bottom_edge: float = camera_y + (viewport_height / 2.0)
 	var screen_percentage: float = ((bottom_edge - player_y) / viewport_height) * 100.0
 	
-	print("Player Position: ", round(screen_percentage), "%")
+	#print("Player Position: ", round(screen_percentage), "%")
 	
 	# Height checks
 	if screen_percentage < TIER_1_THRESHOLD: # 0% to 66%

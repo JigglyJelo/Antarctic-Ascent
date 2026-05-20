@@ -14,6 +14,7 @@ func _ready() -> void:
 	credits_screen = $CreditsScreen
 	$MenuNodes/MusicSlider.value = Game.music_volume
 	$MenuNodes/SFXSlider.value = Game.sfx_volume
+	$CreditsScreen/VersionText.text = "V" + ProjectSettings.get_setting("application/config/version")
 
 func start_game() -> void:
 	get_tree().change_scene_to_file("res://Source/Scenes/Main Scenes/Game Scene.tscn")

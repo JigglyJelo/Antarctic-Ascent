@@ -1,7 +1,7 @@
 class_name SceneManager
 extends Node
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	Game.fullscreen_input_check()
 
 func switch_to_tutorial() -> void:

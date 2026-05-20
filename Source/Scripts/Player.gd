@@ -80,8 +80,10 @@ func _physics_process(_delta: float) -> void:
 	#Put clone in correct position
 	if global_position.x > 0 and clone_sprite.global_position.x > 0:
 		clone_sprite.position.x *= -1
+		reset_physics_interpolation()
 	elif  global_position.x < 0 and clone_sprite.global_position.x < 0:
 		clone_sprite.position.x *= -1
+		reset_physics_interpolation()
 	#Check for screen wrap
 	if global_position.x > 172 or global_position.x < -172:
 		#Sync clone animation
