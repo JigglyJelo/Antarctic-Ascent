@@ -46,11 +46,11 @@ func show_licenses() -> void:
 		update_credits()
 
 static func _load_credits_text() -> String:
-	var the_credits_string: String = "Open-Source at github.com/JigglyJelo/Antarctic-Ascent\n\n"
+	var the_credits_string: String = "Open-Source at\ngithub.com/JigglyJelo/Antarctic-Ascent\n\n"
 	var version: Dictionary = Engine.get_version_info()
 	the_credits_string += "Game made in Godot %d.%d" % [version.major, version.minor] + (".%d" % version.patch if version.patch != 0 else "") + "\n"
 	the_credits_string += "\nCode available under GPL 3.0-or-later\n\n"
-	the_credits_string += "Sprites & Images by JigglyJello available under CC BY-SA 4.0\nhttps://creativecommons.org/licenses/by-sa/4.0/\n\n"
+	the_credits_string += "Sprites & Images by JigglyJello available under CC BY-SA 4.0\ncreativecommons.org/licenses/by-sa/4.0/\n\n"
 	the_credits_string += FileAccess.get_file_as_string("res://Assets/Audio/Music/Music Credits.txt") + "\n\n"
 	the_credits_string += FileAccess.get_file_as_string("res://Assets/Audio/SFX/SFX Credits.txt") + "\n\n"
 	the_credits_string += "Press Start 2P font licensed under OFL 1.1"
