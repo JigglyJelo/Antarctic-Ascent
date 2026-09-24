@@ -1,20 +1,20 @@
 class_name MainMenu
 extends Node
-var menu_nodes: Node2D
-var credits_screen: Node2D
+
+@onready var credits_screen: CreditsScreen = $CreditsScreen
+@onready var credits_scroll: ScrollContainer = $CreditsScreen/ScrollContainer
+@onready var menu_nodes: Node2D = $MenuNodes
 
 func _ready() -> void:
-	Game.load_highscore()
-	@warning_ignore("integer_division")
-	$MenuNodes/HiscoreLabel.text = "Highscore: " + str(int(Game.highscore/15)) + "M"
 	Game.load_volume()
 	set_music_volume(Game.music_volume)
 	set_sfx_volume(Game.sfx_volume)
-	menu_nodes = $MenuNodes
-	credits_screen = $CreditsScreen
 	$MenuNodes/MusicSlider.value = Game.music_volume
 	$MenuNodes/SFXSlider.value = Game.sfx_volume
-	$CreditsScreen/VersionText.text = "V" + ProjectSettings.get_setting("application/config/version")
+	Game.load_highscore()
+	@warning_ignore("integer_division")
+	$MenuNodes/HiscoreLabel.text = "Highscore: " + str(int(Game.highscore/15)) + "M"
+	$CreditsScreen/ScrollContainer/VBoxContainer/VersionText.text = "V" + ProjectSettings.get_setting("application/config/version")
 
 func start_game() -> void:
 	get_tree().change_scene_to_file("res://Source/Scenes/Main Scenes/Game Scene.tscn")
@@ -33,8 +33,12 @@ func set_sfx_volume(volume: float) -> void:
 	Game.save_volume()
 
 func show_credits() -> void:
+	credits_screen.update_credits()
 	credits_screen.global_position.x = 0
 	menu_nodes.global_position.x = 720
+	
+func show_licenses() -> void:
+	credits_screen.show_licenses()
 
 func show_menu() -> void:
 	credits_screen.global_position.x = 720

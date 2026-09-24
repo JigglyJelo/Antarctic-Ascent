@@ -1,0 +1,61 @@
+[gd_resource type="Theme" load_steps=13 format=3 uid="uid://cqs3kfd4t6bhy"]
+
+[ext_resource type="Texture2D" uid="uid://bv7cm4ui3n5d0" path="res://Assets/Sprites/Button.png" id="1_tiabq"]
+[ext_resource type="Texture2D" uid="uid://ccdp4fft4kuxt" path="res://Assets/Sprites/draggy.png" id="2_oqd3n"]
+[ext_resource type="FontFile" uid="uid://cmfeqjjrfcrpw" path="res://Assets/PressStart2P-vaV7.ttf" id="3_rcxop"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n5h04"]
+texture = ExtResource("1_tiabq")
+modulate_color = Color(0, 0.705882, 1, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_abc83"]
+texture = ExtResource("1_tiabq")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8dggw"]
+texture = ExtResource("1_tiabq")
+modulate_color = Color(0, 0.705882, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mp1u8"]
+bg_color = Color(0, 0.646505, 0.909373, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_on6go"]
+bg_color = Color(0, 0.796078, 0.909804, 1)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_fo0p5"]
+grow_begin = 0.0
+grow_end = 0.0
+thickness = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r2cpd"]
+bg_color = Color(1, 1, 1, 1)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2r1ua"]
+bg_color = Color(1, 1, 1, 1)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h0atq"]
+bg_color = Color(1, 1, 1, 1)
+anti_aliasing = false
+
+[resource]
+default_font = ExtResource("3_rcxop")
+default_font_size = 16
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_hover_color = Color(0, 1, 1, 1)
+Button/colors/font_hover_pressed_color = Color(0, 0.823529, 1, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 0)
+Button/constants/icon_max_width = 100
+Button/styles/disabled = SubResource("StyleBoxTexture_n5h04")
+Button/styles/hover = SubResource("StyleBoxTexture_abc83")
+Button/styles/normal = SubResource("StyleBoxTexture_n5h04")
+Button/styles/pressed = SubResource("StyleBoxTexture_8dggw")
+HSlider/icons/grabber = ExtResource("2_oqd3n")
+HSlider/icons/grabber_disabled = ExtResource("2_oqd3n")
+HSlider/icons/grabber_highlight = ExtResource("2_oqd3n")
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_mp1u8")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_on6go")
+HSlider/styles/slider = SubResource("StyleBoxLine_fo0p5")
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_r2cpd")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_2r1ua")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_h0atq")

@@ -5,7 +5,7 @@
 [ext_resource type="FontFile" uid="uid://cmfeqjjrfcrpw" path="res://Assets/PressStart2P-vaV7.ttf" id="3_lmarv"]
 [ext_resource type="Texture2D" uid="uid://dg43odre73t0h" path="res://Assets/Sprites/Controls.png" id="4_8u1l2"]
 [ext_resource type="Texture2D" uid="uid://cisorq3x0bjlk" path="res://Assets/Sprites/MountainTiles.png" id="4_ygfi1"]
-[ext_resource type="Theme" uid="uid://cqs3kfd4t6bhy" path="res://Source/Resources/ButtonTheme.tres" id="5_nvjm7"]
+[ext_resource type="Theme" uid="uid://cqs3kfd4t6bhy" path="res://Source/Resources/Theme.tres" id="5_nvjm7"]
 [ext_resource type="Texture2D" uid="uid://bfny3bjja1pjx" path="res://Assets/Sprites/IceTiles.png" id="5_rp2uy"]
 [ext_resource type="Script" path="res://Source/Scripts/BuildingTiles.gd" id="6_h6okn"]
 [ext_resource type="AudioStream" uid="uid://cfso7xxo546yb" path="res://Assets/Audio/SFX/snow_place.ogg" id="7_0q6im"]

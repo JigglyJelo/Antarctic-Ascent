@@ -19,7 +19,7 @@
 [ext_resource type="Script" path="res://Source/Scripts/Cursor.gd" id="16_2p54w"]
 [ext_resource type="AudioStream" uid="uid://b78hs5erw1rkt" path="res://Assets/Audio/SFX/collect.ogg" id="17_blpp6"]
 [ext_resource type="PackedScene" uid="uid://tq2wx1yuis34" path="res://Source/Scenes/Object Scenes/Snowman.tscn" id="20_rlnj7"]
-[ext_resource type="Theme" uid="uid://cqs3kfd4t6bhy" path="res://Source/Resources/ButtonTheme.tres" id="21_e5jht"]
+[ext_resource type="Theme" uid="uid://cqs3kfd4t6bhy" path="res://Source/Resources/Theme.tres" id="21_e5jht"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_5p8mm"]
 tile_data = PackedInt32Array(0, 131072, 65538, 65536, 327680, 131073, 131072, 327680, 131073, 196608, 327680, 131073, 262144, 327680, 131073, 327680, 327680, 131073, 393216, 327680, 131073, 458752, 327680, 131073, 524288, 327680, 131073, 589824, 0, 1, 1, 131072, 2, 65537, 327680, 65537, 131073, 327680, 65537, 196609, 327680, 65537, 262145, 327680, 65537, 327681, 327680, 65537, 393217, 327680, 65537, 458753, 327680, 65537, 524289, 327680, 65537, 589825, 0, 65537)

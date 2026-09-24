@@ -1,14 +1,15 @@
-[gd_scene load_steps=37 format=4 uid="uid://l3mvhww20wg2"]
+[gd_scene load_steps=38 format=4 uid="uid://l3mvhww20wg2"]
 
 [ext_resource type="Script" path="res://Source/Scripts/MainMenu.gd" id="1_6btk7"]
 [ext_resource type="Texture2D" uid="uid://cisorq3x0bjlk" path="res://Assets/Sprites/MountainTiles.png" id="2_gcnji"]
 [ext_resource type="Texture2D" uid="uid://iocokhkaqogc" path="res://Assets/Sprites/Player/Idle.png" id="3_7tqbi"]
 [ext_resource type="Texture2D" uid="uid://dd1cqqighq87i" path="res://Assets/Sprites/Player/Idle2.png" id="4_j1huv"]
-[ext_resource type="Theme" uid="uid://cqs3kfd4t6bhy" path="res://Source/Resources/ButtonTheme.tres" id="5_0ca26"]
+[ext_resource type="Theme" uid="uid://cqs3kfd4t6bhy" path="res://Source/Resources/Theme.tres" id="5_0ca26"]
 [ext_resource type="FontFile" uid="uid://cmfeqjjrfcrpw" path="res://Assets/PressStart2P-vaV7.ttf" id="6_egn26"]
 [ext_resource type="Texture2D" uid="uid://csoely44nbqoe" path="res://Assets/Sprites/logo.png" id="7_s75sk"]
 [ext_resource type="Texture2D" uid="uid://b8l71x26ll2wh" path="res://Assets/Sprites/music.png" id="8_u1slh"]
 [ext_resource type="Texture2D" uid="uid://ydefb6hd86ne" path="res://Assets/Sprites/sfx.png" id="9_77gwe"]
+[ext_resource type="Script" path="res://Source/Scripts/CreditsMenu.gd" id="10_qwjok"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_5p8mm"]
 tile_data = PackedInt32Array(0, 131072, 65538, 65536, 327680, 131073, 131072, 327680, 131073, 196608, 327680, 131073, 262144, 327680, 131073, 327680, 327680, 131073, 393216, 327680, 131073, 458752, 327680, 131073, 524288, 327680, 131073, 589824, 0, 1, 1, 131072, 2, 65537, 327680, 65537, 131073, 327680, 65537, 196609, 327680, 65537, 262145, 327680, 65537, 327681, 327680, 65537, 393217, 327680, 65537, 458753, 327680, 65537, 524289, 327680, 65537, 589825, 0, 65537)
@@ -567,13 +568,12 @@ font_color = Color(0.729412, 0.803922, 1, 1)
 shadow_size = 4
 shadow_color = Color(0, 0, 0, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_gd5tv"]
+[sub_resource type="LabelSettings" id="LabelSettings_o0g0o"]
 font = ExtResource("6_egn26")
 font_size = 8
-shadow_size = 4
-shadow_color = Color(0, 0, 0, 1)
+font_color = Color(0, 0, 0, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_3d647"]
+[sub_resource type="LabelSettings" id="LabelSettings_gd5tv"]
 font = ExtResource("6_egn26")
 font_size = 8
 shadow_size = 4
@@ -666,82 +666,7 @@ text = "©"
 
 [node name="CreditsScreen" type="Node2D" parent="."]
 position = Vector2(720, 0)
-
-[node name="JigglyJelloText" type="Label" parent="CreditsScreen"]
-texture_filter = 1
-offset_top = 10.0
-offset_right = 360.0
-offset_bottom = 77.0
-text = "Game by 
-JigglyJello
-"
-label_settings = SubResource("LabelSettings_5soop")
-horizontal_alignment = 1
-
-[node name="GMTKText" type="Label" parent="CreditsScreen"]
-texture_filter = 1
-offset_top = 84.0
-offset_right = 360.0
-offset_bottom = 119.0
-text = "Made for GMTK Game Jam 2024"
-label_settings = SubResource("LabelSettings_kc4ue")
-horizontal_alignment = 1
-
-[node name="MusicText" type="Label" parent="CreditsScreen"]
-texture_filter = 1
-offset_top = 101.0
-offset_right = 368.0
-offset_bottom = 175.0
-text = "Available under the following licenses:
-Code: GPL 3.0
-Sprites/Images: CC BY-SA 4.0
-The Press Start 2P Font:  OFL
-
-Music:
-Merry Early Christmas by Alex McCulloch: CC0
-Every Xmas Merry Xmas by congusbongus: CC0"
-label_settings = SubResource("LabelSettings_gd5tv")
-horizontal_alignment = 1
-
-[node name="AudioText" type="Label" parent="CreditsScreen"]
-texture_filter = 1
-offset_top = 199.0
-offset_right = 360.0
-offset_bottom = 312.0
-text = "CC0 SFX Used:
-freesound.org/people/Nox_Sound/sounds/490951
-freesound.org/people/propthis/sounds/24731
-freesound.org/people/davilca/sounds/677230
-freesound.org/people/plasterbrain/
-sounds/395443
-freesound.org/people/NeoSpica/sounds/512243
-opengameart.org/content/
-level-up-power-up-coin-get-13-sounds
-opengameart.org/content/wind1
-"
-label_settings = SubResource("LabelSettings_3d647")
-horizontal_alignment = 1
-
-[node name="GodotText" type="Label" parent="CreditsScreen"]
-texture_filter = 1
-offset_top = 321.0
-offset_right = 368.0
-offset_bottom = 351.0
-text = "Made in Godot 4.3
-github.com/JigglyJelo/Antarctic-Ascent
-For More Info"
-label_settings = SubResource("LabelSettings_gd5tv")
-horizontal_alignment = 1
-
-[node name="VersionText" type="Label" parent="CreditsScreen"]
-texture_filter = 1
-offset_left = 256.0
-offset_top = 349.0
-offset_right = 354.0
-offset_bottom = 359.0
-text = "VX.X.X"
-label_settings = SubResource("LabelSettings_gd5tv")
-horizontal_alignment = 2
+script = ExtResource("10_qwjok")
 
 [node name="BackButton" type="Button" parent="CreditsScreen"]
 offset_top = 342.0
@@ -749,7 +674,89 @@ offset_right = 34.0
 offset_bottom = 360.0
 theme = ExtResource("5_0ca26")
 theme_override_font_sizes/font_size = 8
-text = "Back"
+text = "Main Menu"
+
+[node name="LicenseButton" type="Button" parent="CreditsScreen"]
+offset_left = 209.0
+offset_top = 342.0
+offset_right = 361.0
+offset_bottom = 360.0
+theme = ExtResource("5_0ca26")
+theme_override_font_sizes/font_size = 8
+text = "Open-Source Notices"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CreditsScreen"]
+offset_right = 360.0
+offset_bottom = 336.0
+theme = ExtResource("5_0ca26")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CreditsScreen/ScrollContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="JigglyJelloText" type="Label" parent="CreditsScreen/ScrollContainer/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+text = "Game by 
+JigglyJello
+"
+label_settings = SubResource("LabelSettings_5soop")
+horizontal_alignment = 1
+
+[node name="GMTKText" type="Label" parent="CreditsScreen/ScrollContainer/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+text = "©2024-2026
+Made for GMTK Game Jam 2024"
+label_settings = SubResource("LabelSettings_kc4ue")
+horizontal_alignment = 1
+
+[node name="CreditsText" type="Label" parent="CreditsScreen/ScrollContainer/VBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(300, 8)
+layout_mode = 2
+label_settings = SubResource("LabelSettings_o0g0o")
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="FirstPartyText" type="Label" parent="CreditsScreen/ScrollContainer/VBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(300, 8)
+layout_mode = 2
+label_settings = SubResource("LabelSettings_o0g0o")
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="GodotText" type="Label" parent="CreditsScreen/ScrollContainer/VBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(300, 8)
+layout_mode = 2
+label_settings = SubResource("LabelSettings_o0g0o")
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="ThirdPartyText" type="Label" parent="CreditsScreen/ScrollContainer/VBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(300, 8)
+layout_mode = 2
+label_settings = SubResource("LabelSettings_o0g0o")
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="AttributionText" type="Label" parent="CreditsScreen/ScrollContainer/VBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(300, 8)
+layout_mode = 2
+label_settings = SubResource("LabelSettings_o0g0o")
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="VersionText" type="Label" parent="CreditsScreen/ScrollContainer/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+text = "VX.X.X"
+label_settings = SubResource("LabelSettings_gd5tv")
+horizontal_alignment = 2
 
 [connection signal="pressed" from="MenuNodes/StartButton" to="." method="start_game"]
 [connection signal="pressed" from="MenuNodes/HowToPlayButton" to="." method="start_tutorial"]
@@ -757,3 +764,4 @@ text = "Back"
 [connection signal="value_changed" from="MenuNodes/SFXSlider" to="." method="set_sfx_volume"]
 [connection signal="pressed" from="MenuNodes/CreditsButton" to="." method="show_credits"]
 [connection signal="pressed" from="CreditsScreen/BackButton" to="." method="show_menu"]
+[connection signal="pressed" from="CreditsScreen/LicenseButton" to="." method="show_licenses"]

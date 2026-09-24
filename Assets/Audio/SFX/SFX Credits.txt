@@ -1,10 +1,26 @@
-All SFX are public domain from the following sources:
+SFX Credits:
+
+CC0 1.0:
+https://creativecommons.org/publicdomain/zero/1.0/
+-----------------------------------
+"Footsteps_Walk.wav" by Nox_Sound:
 freesound.org/people/Nox_Sound/sounds/490951
+
+"SQUEAK3.WAV" by propthis:
 freesound.org/people/propthis/sounds/24731
+
+"Break Ice" by davilca:
 freesound.org/people/davilca/sounds/677230
-freesound.org/people/plasterbrain/
-sounds/395443
+
+"Cartoon Fall" by plasterbrain:
+freesound.org/people/plasterbrain/sounds/395443
+
+"Rock Smash" by NeoSpica:
 freesound.org/people/NeoSpica/sounds/512243
-opengameart.org/content/
-level-up-power-up-coin-get-13-sounds
+
+"Level up, power up, Coin get (13 Sounds)" by wobbleboxx:
+opengameart.org/content/level-up-power-up-coin-get-13-sounds
+
+"wind1" by Luke.RUSTLTD:
 opengameart.org/content/wind1
+-----------------------------------
